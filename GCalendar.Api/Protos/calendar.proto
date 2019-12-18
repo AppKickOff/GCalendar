@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "Grpc";
+
+package Grpc;
+
+service Calendar {
+    rpc InsertEvent (Event) returns (Event);
+}
+
+message Event {
+    string calendarId = 1;
+    string Id = 2;
+    Start start = 3;
+    End end = 4;
+    string title = 5;
+    string description = 6;
+}
+
+message Start {
+    // Number of .1 ms intervals since 00:00:00 01/01/0001
+    int64 Ticks = 1;
+    // IANA Time Zone
+    string timeZone = 2;
+}
+
+message End {
+    // Number of .1 ms intervals since 00:00:00 01/01/0001
+    int64 Ticks = 1;
+    // IANA Time Zone
+    string timeZone = 2;
+}
