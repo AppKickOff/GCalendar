@@ -1,35 +1,37 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj": {}
+    "d:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj": {}
   },
   "projects": {
-    "D:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj": {
+    "d:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj",
+        "projectUniqueName": "d:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj",
         "projectName": "GCalendar.Api",
-        "projectPath": "D:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj",
+        "projectPath": "d:\\Code\\GCalendar\\GCalendar.Api\\GCalendar.Api.csproj",
         "packagesPath": "C:\\Users\\tomso\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\GCalendar\\GCalendar.Api\\obj\\",
+        "outputPath": "d:\\Code\\GCalendar\\GCalendar.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "C:\\Users\\tomso\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\tomso\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "projectReferences": {}
+            "projectReferences": {
+              "d:\\Code\\GCalendar\\GCalendar.Handlers\\GCalendar.Handlers.csproj": {
+                "projectPath": "d:\\Code\\GCalendar\\GCalendar.Handlers\\GCalendar.Handlers.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
@@ -41,9 +43,17 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Grpc.AspNetCore": {
+            "GrpcExtensions.AspNetCore.Validation": {
               "target": "Package",
-              "version": "[2.23.2, )"
+              "version": "[2.25.1, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            },
+            "Scrutor": {
+              "target": "Package",
+              "version": "[3.1.0, )"
             }
           },
           "imports": [
@@ -61,6 +71,69 @@
               "privateAssets": "none"
             },
             "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\Code\\GCalendar\\GCalendar.Handlers\\GCalendar.Handlers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\Code\\GCalendar\\GCalendar.Handlers\\GCalendar.Handlers.csproj",
+        "projectName": "GCalendar.Handlers",
+        "projectPath": "d:\\Code\\GCalendar\\GCalendar.Handlers\\GCalendar.Handlers.csproj",
+        "packagesPath": "C:\\Users\\tomso\\.nuget\\packages\\",
+        "outputPath": "d:\\Code\\GCalendar\\GCalendar.Handlers\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\tomso\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netstandard2.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.1": {
+          "dependencies": {
+            "Scrutor": {
+              "target": "Package",
+              "version": "[3.1.0, )"
+            },
+            "mediatr": {
+              "target": "Package",
+              "version": "[7.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "NETStandard.Library": {
               "privateAssets": "all"
             }
           },

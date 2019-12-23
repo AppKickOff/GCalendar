@@ -1,2 +1,2 @@
 obj\Debug\netcoreapp3.1/Calendar.cs \
-obj\Debug\netcoreapp3.1/CalendarGrpc.cs: Protos/calendar.proto
+obj\Debug\netcoreapp3.1/CalendarGrpc.cs: Protos/Calendar.proto

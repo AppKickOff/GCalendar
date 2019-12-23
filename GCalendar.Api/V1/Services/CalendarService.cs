@@ -1,8 +1,8 @@
 using System.Threading.Tasks;
-using Grpc;
+using Contracts.Calendar;
 using Grpc.Core;
 
-namespace GCalendar.Api.Controllers
+namespace GCalendar.Api.V1.Services
 {
     public class CalendarService : Calendar.CalendarBase
     {
