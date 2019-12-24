@@ -10,28 +10,15 @@ namespace GCalendar.Handlers.V1.InsertEvent
             string id,
             DateTime start,
             DateTime end,
-            string title)
+            string title,
+            string? description = null)
         {
-            if (string.IsNullOrWhiteSpace(calendarId))
-                throw new ArgumentException(nameof(calendarId));
-
-            if (string.IsNullOrWhiteSpace(id))
-                throw new ArgumentException(nameof(id));
-
-            if (string.IsNullOrWhiteSpace(title))
-                throw new ArgumentException(nameof(title));     
-
-            if (start == default)
-                throw new ArgumentException(nameof(start));    
-
-            if (end == default)
-                throw new ArgumentException(nameof(end));   
-
             CalendarId = calendarId;
             Id = id;
             Start = start;
             End = end;
             Title = title;
+            Description = description;
         }
 
         public string CalendarId { get; }

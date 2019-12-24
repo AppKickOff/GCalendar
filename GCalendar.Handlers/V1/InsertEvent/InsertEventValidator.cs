@@ -3,34 +3,35 @@ using FluentValidation;
 
 namespace GCalendar.Handlers.V1.InsertEvent
 {
-    public class InsertEventValidator : MediatrRequestValidator<InsertEventCommand>
+    class InsertEventValidator : MediatrRequestValidator<InsertEventCommand>
     {
-        protected internal override void ConfigureValidation()
+        public InsertEventValidator()
         {
-            RuleFor(r => r)
+            RuleFor(c => c)
                 .NotNull();
             
-            RuleFor(r => r.Id)
+            RuleFor(c => c.Id)
                 .NotNull()
                 .NotEmpty();
 
-            RuleFor(r => r.CalendarId)
+            RuleFor(c => c.CalendarId)
                 .NotNull()
                 .NotEmpty();
 
-            RuleFor(r => r.Title)
+            RuleFor(c => c.Title)
                 .NotNull()
                 .NotEmpty();
             
-            RuleFor(r => r.Description)
+            RuleFor(c => c.Description)
                 .NotNull()
                 .NotEmpty();
             
-            RuleFor(r => r.Start.ToUniversalTime())
+            RuleFor(c => c.Start.ToUniversalTime())
                 .GreaterThan(DateTime.UtcNow);
             
-            RuleFor(r => r.End.ToUniversalTime())
-                .GreaterThan(DateTime.UtcNow);
+            // End Date
+            RuleFor(c => c)
+                .Must(c => c.End > c.Start);
         }
     }
 }
