@@ -2,17 +2,15 @@
 # Visual Studio 15
 VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Api", "GCalendar.Api\GCalendar.Api.csproj", "{6370CE09-1059-4B84-BF97-6667AB85AD53}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Api", "src\GCalendar.Api\GCalendar.Api.csproj", "{6370CE09-1059-4B84-BF97-6667AB85AD53}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{75A70205-E9F8-4C84-A845-C2E16B245C1E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "src\Tests\Tests.Unit\Tests.Unit.csproj", "{E5862F09-4092-43C8-8DF5-E4B57415C454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "Tests\Tests.Unit\Tests.Unit.csproj", "{E5862F09-4092-43C8-8DF5-E4B57415C454}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Handlers", "src\GCalendar.Handlers\GCalendar.Handlers.csproj", "{0AAE35B3-9CEC-49CB-9FA5-1139CF653903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Handlers", "GCalendar.Handlers\GCalendar.Handlers.csproj", "{0AAE35B3-9CEC-49CB-9FA5-1139CF653903}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Contracts", "src\GCalendar.Service.Contracts\GCalendar.Service.Contracts.csproj", "{4AD165A9-A0CB-4313-9AD8-BCAE1D5E9E2F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Contracts", "GCalendar.Service.Contracts\GCalendar.Service.Contracts.csproj", "{4AD165A9-A0CB-4313-9AD8-BCAE1D5E9E2F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Implemenation", "GCalendar.Service.Implemenation\GCalendar.Service.Implemenation.csproj", "{89ADBBBC-2364-409D-AEE0-20BA025732EC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Implemenation", "src\GCalendar.Service.Implemenation\GCalendar.Service.Implemenation.csproj", "{89ADBBBC-2364-409D-AEE0-20BA025732EC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -87,8 +85,5 @@ Global
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x64.Build.0 = Release|Any CPU
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x86.ActiveCfg = Release|Any CPU
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x86.Build.0 = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{E5862F09-4092-43C8-8DF5-E4B57415C454} = {75A70205-E9F8-4C84-A845-C2E16B245C1E}
 	EndGlobalSection
 EndGlobal
