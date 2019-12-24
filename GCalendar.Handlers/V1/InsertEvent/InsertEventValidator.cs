@@ -22,10 +22,6 @@ namespace GCalendar.Handlers.V1.InsertEvent
                 .NotNull()
                 .NotEmpty();
             
-            RuleFor(c => c.Description)
-                .NotNull()
-                .NotEmpty();
-            
             RuleFor(c => c.Start.ToUniversalTime())
                 .GreaterThan(DateTime.UtcNow);
             

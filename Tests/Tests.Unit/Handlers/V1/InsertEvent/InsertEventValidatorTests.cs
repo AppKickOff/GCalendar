@@ -32,14 +32,56 @@ namespace Tests.Unit.Handlers.V1.InsertEvent
         }
 
         [Theory]
-        [InlineData(null)]
-        [InlineData("")]
-        public void ForId_IsValidated(string id)
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData("ValidId", true)]
+        public void ForId_IsValidated(string id, bool isValid)
         {
             command.SetPropertyNoSetter(nameof(command.Id), id);
+            CheckValidation(isValid);
+        }
 
-            FluentActions.Invoking(() => validator.ValidateAndThrow(command))
-                .Should().Throw<ValidationException>();
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData("ValidId", true)]
+        public void ForCalendarId_IsValidated(string calendarId, bool isValid)
+        {
+            command.SetPropertyNoSetter(nameof(command.CalendarId), calendarId);
+            CheckValidation(isValid);
+        }
+
+        [Theory]
+        [InlineData(null, false)]
+        [InlineData("", false)]
+        [InlineData("ValidTitle", true)]
+        public void ForTitle_IsValidated(string title, bool isValid)
+        {
+            command.SetPropertyNoSetter(nameof(command.Title), title);
+            CheckValidation(isValid);
+        }
+        [Fact]
+        public void ForStart_InThePast_IsInvalid()
+        {
+            command.SetPropertyNoSetter(nameof(command.Start), DateTime.Now.AddHours(-1));
+            CheckValidation(false);
+        }
+
+        [Fact]
+        public void ForEnd_BeforeStart_IsInvalid()
+        {
+            command.SetPropertyNoSetter(nameof(command.End), command.Start.AddHours(-1));
+            CheckValidation(false);
+        }
+
+        void CheckValidation(bool isValid)
+        {
+            if (isValid)            
+                FluentActions.Invoking(() => validator.ValidateAndThrow(command))
+                    .Should().NotThrow();
+            else
+                FluentActions.Invoking(() => validator.ValidateAndThrow(command))
+                    .Should().Throw<ValidationException>();
         }
     }
 }
