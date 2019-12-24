@@ -1,4 +1,5 @@
 using MediatR;
+using MediatR.Pipeline;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace GCalendar.Handlers
@@ -8,9 +9,10 @@ namespace GCalendar.Handlers
         public static IServiceCollection AddHandlers(this IServiceCollection services)
         {
             services.AddTransient<ServiceFactory>(p => p.GetService);
+            services.AddTransient(typeof(IPipelineBehavior<,>), typeof(RequestPreProcessorBehavior<,>));
             services.AddSingleton<IMediator, Mediator>();
 
-            services.Scan(a => a.FromExecutingAssembly()
+            services.Scan(a => a.FromAssemblyOf<AssemblyInfo>()
                 .AddClasses(c => c.AssignableTo(typeof(IRequestHandler<>)))
                 .AsMatchingInterface((t, f) => f.AssignableTo(typeof(IRequestHandler<>)))
                 .WithSingletonLifetime()

@@ -1,14 +1,36 @@
-using System.Threading;
-using System.Threading.Tasks;
-using MediatR;
+using System;
+using FluentValidation;
 
 namespace GCalendar.Handlers.V1.InsertEvent
 {
-    public class InsertEventValidator : IPipelineBehavior<InsertEventCommand, InsertEventResult>
+    public class InsertEventValidator : MediatrRequestValidator<InsertEventCommand>
     {
-        public Task<InsertEventResult> Handle(InsertEventCommand request, CancellationToken cancellationToken, RequestHandlerDelegate<InsertEventResult> next)
+        protected internal override void ConfigureValidation()
         {
-            throw new System.NotImplementedException();
+            RuleFor(r => r)
+                .NotNull();
+            
+            RuleFor(r => r.Id)
+                .NotNull()
+                .NotEmpty();
+
+            RuleFor(r => r.CalendarId)
+                .NotNull()
+                .NotEmpty();
+
+            RuleFor(r => r.Title)
+                .NotNull()
+                .NotEmpty();
+            
+            RuleFor(r => r.Description)
+                .NotNull()
+                .NotEmpty();
+            
+            RuleFor(r => r.Start.ToUniversalTime())
+                .GreaterThan(DateTime.UtcNow);
+            
+            RuleFor(r => r.End.ToUniversalTime())
+                .GreaterThan(DateTime.UtcNow);
         }
     }
 }

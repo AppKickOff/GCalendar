@@ -1,7 +1,6 @@
-using GCalendar.Api.Controllers;
+using GCalendar.Api.V1.Services;
 using GCalendar.Api.IoC;
 using GCalendar.Handlers;
-using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
