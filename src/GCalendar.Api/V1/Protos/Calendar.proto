@@ -5,16 +5,26 @@ option csharp_namespace = "Contracts.Calendar";
 package Contracts.Calendar;
 
 service Calendar {
-    rpc InsertEvent (Event) returns (Event);
+    rpc InsertEvent (InsertEventRequest) returns (Event);
 }
 
-message Event {
+message InsertEventRequest {
     string calendarId = 1;
     string Id = 2;
     Start start = 3;
     End end = 4;
     string title = 5;
     string description = 6;
+}
+
+message Event {
+    string eventId = 1;    
+    string calendarId = 2;
+    string Id = 3;
+    Start start = 4;
+    End end = 5;
+    string title = 6;
+    string description = 7;
 }
 
 message Start {

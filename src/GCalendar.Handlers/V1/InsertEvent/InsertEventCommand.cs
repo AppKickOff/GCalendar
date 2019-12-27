@@ -1,5 +1,5 @@
-using System;
 using MediatR;
+using NodaTime;
 
 namespace GCalendar.Handlers.V1.InsertEvent
 {
@@ -8,8 +8,8 @@ namespace GCalendar.Handlers.V1.InsertEvent
         public InsertEventCommand(
             string calendarId,
             string id,
-            DateTime start,
-            DateTime end,
+            ZonedDateTime start,
+            ZonedDateTime end,
             string title,
             string? description = null)
         {
@@ -23,8 +23,8 @@ namespace GCalendar.Handlers.V1.InsertEvent
 
         public string CalendarId { get; }
         public string Id { get; }
-        public DateTime Start { get; }
-        public DateTime End { get; }
+        public ZonedDateTime Start { get; }
+        public ZonedDateTime End { get; }
         public string Title { get; }
         public string? Description { get; }
     }

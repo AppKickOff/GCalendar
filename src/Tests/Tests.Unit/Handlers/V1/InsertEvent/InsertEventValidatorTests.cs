@@ -2,6 +2,7 @@ using System;
 using FluentAssertions;
 using FluentValidation;
 using GCalendar.Handlers.V1.InsertEvent;
+using NodaTime;
 using Xunit;
 
 namespace Tests.Unit.Handlers.V1.InsertEvent
@@ -9,13 +10,18 @@ namespace Tests.Unit.Handlers.V1.InsertEvent
     public class InsertEventValidatorTests
     {
         readonly InsertEventValidator validator = new InsertEventValidator();
-        readonly InsertEventCommand command = new InsertEventCommand(
-            Guid.NewGuid().ToString(),
-            Guid.NewGuid().ToString(),
-            DateTime.Now.AddDays(1),
-            DateTime.Now.AddDays(2),
-            "Title"
-        );
+        readonly InsertEventCommand command;
+
+        public InsertEventValidatorTests()
+        {
+            command = new InsertEventCommand(
+                Guid.NewGuid().ToString(),
+                Guid.NewGuid().ToString(),
+                GetDateTime(1),
+                GetDateTime(2),
+                "Title"
+            );
+        }
 
         [Fact]
         public void ForValidEvent_DoesNotThrowException()
@@ -26,7 +32,7 @@ namespace Tests.Unit.Handlers.V1.InsertEvent
 
         [Fact]
         public void ForNullEvent_ThrowsValidationException()
-        {            
+        {
             FluentActions.Invoking(() => validator.Validate(default(InsertEventCommand)!))
                 .Should().Throw<ArgumentNullException>();
         }
@@ -63,25 +69,32 @@ namespace Tests.Unit.Handlers.V1.InsertEvent
         [Fact]
         public void ForStart_InThePast_IsInvalid()
         {
-            command.SetPropertyNoSetter(nameof(command.Start), DateTime.Now.AddHours(-1));
+            command.SetPropertyNoSetter(nameof(command.Start), GetDateTime(-1));
             CheckValidation(false);
         }
 
         [Fact]
         public void ForEnd_BeforeStart_IsInvalid()
         {
-            command.SetPropertyNoSetter(nameof(command.End), command.Start.AddHours(-1));
+            command.SetPropertyNoSetter(nameof(command.End), GetDateTime(-1));
             CheckValidation(false);
         }
 
         void CheckValidation(bool isValid)
         {
-            if (isValid)            
+            if (isValid)
                 FluentActions.Invoking(() => validator.ValidateAndThrow(command))
                     .Should().NotThrow();
             else
                 FluentActions.Invoking(() => validator.ValidateAndThrow(command))
                     .Should().Throw<ValidationException>();
+        }
+
+        ZonedDateTime GetDateTime(int hoursToAdd)
+        {
+            return new ZonedDateTime(
+                Instant.FromDateTimeUtc(DateTime.Now.AddHours(hoursToAdd).ToUniversalTime()),
+                DateTimeZone.Utc);
         }
     }
 }

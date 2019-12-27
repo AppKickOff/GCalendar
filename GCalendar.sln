@@ -8,9 +8,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Unit", "src\Tests\Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Handlers", "src\GCalendar.Handlers\GCalendar.Handlers.csproj", "{0AAE35B3-9CEC-49CB-9FA5-1139CF653903}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Contracts", "src\GCalendar.Service.Contracts\GCalendar.Service.Contracts.csproj", "{4AD165A9-A0CB-4313-9AD8-BCAE1D5E9E2F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Calendar.Contracts", "src\GCalendar.Calendar.Contracts\GCalendar.Calendar.Contracts.csproj", "{4AD165A9-A0CB-4313-9AD8-BCAE1D5E9E2F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCalendar.Service.Implemenation", "src\GCalendar.Service.Implemenation\GCalendar.Service.Implemenation.csproj", "{89ADBBBC-2364-409D-AEE0-20BA025732EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{70A97491-96C8-4B46-A7C9-E68667E7C91D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{0E2D583A-894A-4BAC-B70F-CE9E72D8A330}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests.Integration", "src\Tests\Tests.Integration\Tests.Integration.csproj", "{9600F9F1-193A-4131-BFA6-353B19BC1C32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -85,5 +91,21 @@ Global
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x64.Build.0 = Release|Any CPU
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x86.ActiveCfg = Release|Any CPU
 		{89ADBBBC-2364-409D-AEE0-20BA025732EC}.Release|x86.Build.0 = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|x64.Build.0 = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Debug|x86.Build.0 = Debug|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|x64.ActiveCfg = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|x64.Build.0 = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|x86.ActiveCfg = Release|Any CPU
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0E2D583A-894A-4BAC-B70F-CE9E72D8A330} = {70A97491-96C8-4B46-A7C9-E68667E7C91D}
+		{9600F9F1-193A-4131-BFA6-353B19BC1C32} = {0E2D583A-894A-4BAC-B70F-CE9E72D8A330}
 	EndGlobalSection
 EndGlobal

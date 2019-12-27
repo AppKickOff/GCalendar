@@ -1,4 +1,5 @@
 using System;
+using ApiPackages.Handlers;
 using FluentValidation;
 
 namespace GCalendar.Handlers.V1.InsertEvent
@@ -22,12 +23,18 @@ namespace GCalendar.Handlers.V1.InsertEvent
                 .NotNull()
                 .NotEmpty();
             
-            RuleFor(c => c.Start.ToUniversalTime())
-                .GreaterThan(DateTime.UtcNow);
+            RuleFor(c => c.Start)
+                .NotNull()
+                .Must(t => t.ToDateTimeUtc() > DateTime.UtcNow);
+            
+            RuleFor(c => c.End)
+                .NotNull()
+                .Must(t => t.ToDateTimeUtc() > DateTime.UtcNow);
             
             // End Date
             RuleFor(c => c)
-                .Must(c => c.End > c.Start);
+                .Must(c => c.Start.Zone == c.End.Zone)
+                .Must(c => c.End.LocalDateTime > c.Start.LocalDateTime);
         }
     }
 }

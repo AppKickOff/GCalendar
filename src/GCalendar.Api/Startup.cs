@@ -1,10 +1,10 @@
-using GCalendar.Api.V1.Services;
 using GCalendar.Api.IoC;
 using GCalendar.Handlers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GCalendar.Api.V1;
 
 namespace GCalendar.Api
 {
